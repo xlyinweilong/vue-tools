@@ -67,10 +67,10 @@ const user = {
             reject('error')
           }
           const data = response.data
-          commit('SET_POWER', data.toolsPowers)
+          commit('SET_POWER', [])
           commit('SET_NAME', data.name)
           commit('SET_AVATAR', data.avatar)
-          commit('SET_INTRODUCTION', data.introduction)
+          // commit('SET_INTRODUCTION', data.introduction)
           resolve(response)
         }).catch(error => {
           reject(error)
@@ -83,7 +83,7 @@ const user = {
       return new Promise((resolve, reject) => {
         logout(state.token).then(() => {
           commit('SET_TOKEN', '')
-          commit('SET_ROLES', [])
+          // commit('SET_ROLES', [])
           removeToken()
           resolve()
         }).catch(error => {
